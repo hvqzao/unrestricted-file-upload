@@ -1,0 +1,20 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.exclude": {
+    "**/.gitkeep": true,
+    "**/node_modules": true,
+    "**/next": true,
+    "**/next-env.d.ts": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/next": true
+  },
+  "prettier.tabWidth": 2,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none",
+  "prettier.quoteProps": "preserve"
+}
