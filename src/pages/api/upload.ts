@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
+import path from 'node:path'
 import fs from 'node:fs'
 
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -22,8 +23,10 @@ export default function handler(
 ) {
   const name = req.body.name
   const contents = fromDataURL(req.body.contents)
-  if (contents) {
-    fs.writeFileSync(`public/images/${name}`, contents)
+  const dir = path.resolve('public', 'images')
+  const filepath = path.resolve(dir, name)
+  if (contents && filepath.startsWith(dir)) {
+    fs.writeFileSync(filepath, contents)
     res.status(200).send({ result: 'OK' })
   } else {
     res.status(200).send({ result: 'Failed' })
